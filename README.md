@@ -27,3 +27,10 @@ A web-based simulator for Network Address Translation (NAT) built using Flask.
 1. Install dependencies:
    ```bash
    pip install flask
+
+## 📸 Screenshots
+
+![Screenshot 1](ss1.png)
+![Screenshot 2](ss2.png)
+![Screenshot 3](ss3.png)
+![Screenshot 4](ss4.png)
