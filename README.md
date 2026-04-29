@@ -1,14 +1,29 @@
 # NAT Web Application
 
-A web-based simulator for Network Address Translation (NAT).
+A web-based simulator for Network Address Translation (NAT) built using Flask.
 
-## Features
-- Static and Dynamic NAT
-- Packet flow visualization
-- NAT rules (block IP)
+---
+
+## 🚀 Features
+- Static NAT mapping
+- Dynamic NAT (random public IP + port allocation)
 - Multi-IP support
+- Packet flow simulation
+- NAT rules (block IP)
 - Logging system
+- System info (IP, hostname, gateway)
 
-## How to Run
-pip install flask
-python app.py
+---
+
+## 🛠️ Tech Stack
+- Python (Flask)
+- HTML / CSS
+- JSON (storage)
+
+---
+
+## ▶️ How to Run
+
+1. Install dependencies:
+   ```bash
+   pip install flask
