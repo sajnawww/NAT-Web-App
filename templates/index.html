@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NAT Dashboard</title>
+<style>
+body { background:#0b1220; color:white; font-family:Arial; }
+.card { background:#111827; padding:15px; margin:10px; border-radius:10px; }
+input, select, button { margin:5px; padding:6px; }
+table { width:100%; border-collapse:collapse; }
+td, th { border:1px solid white; padding:8px; text-align:center; }
+.log-box { background:#020617; height:120px; overflow:auto; padding:10px; }
+</style>
+</head>
+<body>
+
+<h2>NAT Simulation Dashboard</h2>
+
+<div class="card">
+<p><b>System IP:</b> {{ ip }}</p>
+<p><b>Hostname:</b> {{ host }}</p>
+<p><b>Gateway:</b> {{ gateway }}</p>
+</div>
+
+<div class="card">
+<form method="POST">
+IP: <input name="ip" required>
+Port: <input name="port" type="number" required>
+
+<select name="type">
+<option value="static">Static NAT</option>
+<option value="dynamic">Dynamic NAT</option>
+</select>
+
+<button>Add</button>
+</form>
+</div>
+
+<div class="card">
+<form method="POST" action="/block">
+<input name="block_ip" placeholder="Block IP">
+<button>Block</button>
+</form>
+</div>
+
+<div class="card">
+<form method="GET">
+<input name="search" value="{{ search }}" placeholder="Search">
+<button>Filter</button>
+</form>
+</div>
+
+<div class="card">
+<a href="/clear">Clear Table</a>
+</div>
+
+<div class="card">
+<h3>NAT Table</h3>
+<table>
+<tr><th>Private</th><th>Public</th><th>Actions</th></tr>
+{% for k,v in table.items() %}
+<tr>
+<td>{{ k }}</td>
+<td>{{ v["public"] }}</td>
+<td>
+<a href="/simulate/{{ k }}">Simulate</a> |
+<a href="/delete/{{ k }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="card">
+<h3>Logs</h3>
+<div class="log-box">
+{% for l in logs %}
+<div>{{ l }}</div>
+{% endfor %}
+</div>
+</div>
+
+</body>
+</html>
